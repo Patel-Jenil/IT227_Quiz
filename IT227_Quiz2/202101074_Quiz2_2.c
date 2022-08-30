@@ -18,13 +18,13 @@ void runQuery(int );
 void completeQuery(int );
 Query* deleteQuery(Query* );
 void freeList();
-void updateElapsesTime();
+void updateElapsedTime();
 void removeAllCompletedQueries();
 
 struct query {
     int query_id;
     char *query_text;
-    uint64_t start_time;
+    time_t start_time;
     uint64_t time_elapsed;
     int query_status; // submitted=1 , running=2, finish=3
     Query *next, *prev;
@@ -46,7 +46,7 @@ void queryDetails(const Query* prog) {
     printf("  Start-Time: %s",ctime(&(prog->start_time)));
     printf("  Elapsed-Time: ");
     if (prog->time_elapsed > 59) {
-        printf("%lu min %lu sec\n", (unsigned int)prog->time_elapsed/60 , (unsigned) prog->time_elapsed%60 );
+        printf("%lu min %lu sec\n", (unsigned long)prog->time_elapsed/60 , (unsigned long) prog->time_elapsed%60 );
     } else {
         printf("%lu sec\n", prog->time_elapsed);
     }
@@ -59,7 +59,7 @@ void showQueries() {
         return;
     }
     printf("\nQuery List:\n");
-    updateElapsesTime();
+    updateElapsedTime();
     while (prog) {
         queryDetails(prog);
         prog = prog->next;
@@ -76,7 +76,7 @@ Query* getDetails() {
     printf("Enter Query text: ");
     fgets(prog->query_text, 512 , stdin);
     prog->start_time = time(NULL);
-    prog->time_elapsed = time(NULL);
+    prog->time_elapsed = 0;
     prog->query_status = 1;
     return prog;
 }
@@ -108,6 +108,7 @@ void runQuery(int id) {
                 printf("\nQuery is already running with Text:\n%s", prog->query_text);
             } else {
                 prog->query_status=2;
+                prog->start_time = time(NULL);
                 printf("\nQuery is now running with Text:\n%s", prog->query_text);
             }
             return;
@@ -125,6 +126,7 @@ void completeQuery(int id) {
     if ( !head ){
         printf("\nQuery List is Empty.\n");
     }
+    updateElapsedTime();
     Query* prog = head;
     while ( prog ) {
         if (prog->query_id == id) {
@@ -178,13 +180,15 @@ Query * deleteQuery(Query* prog) {
     }
 }
 
-void updateElapsesTime() {
+void updateElapsedTime() {
     Query* prog = head;
     if (prog == NULL)
         return;
     uint64_t current_time = time(NULL);
     while (prog) {
-        prog->time_elapsed = current_time - prog->start_time;
+        if (prog->query_status == 2) {
+            prog->time_elapsed = current_time - prog->start_time;
+        }
         prog = prog->next;
     } 
 }
@@ -232,7 +236,7 @@ int main() {
         printf("\n1. Add new Query.\n");
         printf("2. Run a Query.\n");
         printf("3. Complete a Query.\n");
-        printf("4. Update time-elapsed for all Queries.\n");
+        printf("4. Update time-elapsed for running Queries.\n");
         printf("5. Remove all completed Queries.\n");
         printf("0. Exit.\n");
         printf("Choice: ");
@@ -246,31 +250,37 @@ int main() {
             printf("Enter I'd of the Query: ");
             scanf ("%d",&id);
             runQuery(id);
+            getchar();
             break;
         case '3':
             printf("Enter I'd of the Query: ");
             scanf ("%d",&id);
             completeQuery(id);
+            getchar();
             break;
         case '4':
             if (head==NULL){
                 printf("\nNo Queries at the moment.\n");
             } else {
-                printf("\n***Updated Elapsed Time for All Queries***\n");
-                updateElapsesTime();
+                printf("\n***Updated Elapsed Time for running Queries***\n");
+                updateElapsedTime();
             }
+            getchar();
             break;
         case '5':
             removeAllCompletedQueries();
+            getchar();
             break;
         case '0':
             printf("\nAdios Amigo\n");
             freeList();
+            getchar();
+            getchar();
             return 0;
         default:
             printf("Invalid choice!\n");
+            getchar();
         }
-        getchar();
         getchar();
     }
     return 0;
