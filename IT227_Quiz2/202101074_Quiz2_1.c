@@ -8,7 +8,6 @@
 // Declaring global variables here...
 int totalQuery = 0;
 typedef struct query Query;
-Query* head = NULL,*tail =NULL;
 struct query **array = NULL;
 
 // Function Declarations
@@ -18,7 +17,7 @@ Query* getDetails();
 void addQuery();
 void runQuery(int );
 void completeQuery(int );
-Query* deleteQuery(Query* );
+int deleteQuery(int );
 void freeList();
 void updateElapsedTime();
 void removeAllCompletedQueries();
@@ -29,7 +28,6 @@ struct query {
     time_t start_time;
     uint64_t time_elapsed;
     int query_status; // submitted=1 , running=2, finish=3
-    Query *next, *prev;
 };
 
 void queryDetails(const Query* prog) {
@@ -54,23 +52,19 @@ void queryDetails(const Query* prog) {
 }
 
 void showQueries() {
-    Query* prog = head;
-    if (head == NULL) {
+    if (!array) {
         printf("\nNo Queries at the moment.\n");
         return;
     }
     printf("\nQuery List:\n");
     updateElapsedTime();
-    while (prog) {
-        queryDetails(prog);
-        prog = prog->next;
+    for (int i=0; i<totalQuery; ++i) {
+        queryDetails(array[i]);
     }
 }
 
 Query* getDetails() {
     Query* prog = (Query *) malloc(sizeof(Query));
-    prog->next = NULL;
-    prog->prev = NULL;
     ++totalQuery;
     prog->query_id = totalQuery;
     prog->query_text = (char *) malloc(512) ;
@@ -86,13 +80,7 @@ void addQuery() {
 
     Query* newQuery = getDetails();
     array = (Query** )realloc(array ,(sizeof(Query*) * totalQuery));
-    if (head == NULL) {
-        head = tail = newQuery;
-    } else {
-        tail->next = newQuery;
-        newQuery->prev = tail;
-        tail = newQuery;
-    }
+    array[totalQuery - 1] = newQuery;
     printf("\nQuery added.\n");
 }
 
@@ -101,24 +89,16 @@ void runQuery(int id) {
         printf("\nInvalid QID.\n");
         return;
     }
-    if ( !head ){
+    if ( !array ){
         printf("\nQuery List is Empty.\n");
     }
-    Query* prog = head;
-    while ( prog ) {
-        if (prog->query_id == id) {
-            if (prog->query_status == 2) {
-                printf("\nQuery is already running with Text:\n%s", prog->query_text);
-            } else {
-                prog->query_status=2;
-                prog->start_time = time(NULL);
-                printf("\nQuery is now running with Text:\n%s", prog->query_text);
-            }
-            return;
-        }
-        prog=prog->next;
+    if (array[id - 1]->query_status == 2) {
+        printf("\nQuery is already running with Text:\n%s", array[id - 1]->query_text);
+    } else {
+        array[id - 1]->query_status=2;
+        array[id - 1]->start_time = time(NULL);
+        printf("\nQuery is now running with Text:\n%s", array[id - 1]->query_text);
     }
-    printf("\nInvalid QID.\n");
 }
 
 void completeQuery(int id) {
@@ -126,34 +106,22 @@ void completeQuery(int id) {
         printf("\nInvalid QID.\n");
         return;
     }
-    if ( !head ){
+    if ( !array ){
         printf("\nQuery List is Empty.\n");
     }
     updateElapsedTime();
-    Query* prog = head;
-    while ( prog ) {
-        if (prog->query_id == id) {
-            if (prog->query_status == 3) {
-                printf("\nQuery is already completed with Text:\n%s", prog->query_text);
-            } else {
-                prog->query_status=3;
-                printf("\nQuery is now completed with Text:\n%s", prog->query_text);
-            }
-            return;
-        }
-        prog = prog->next;
+    if (array[id - 1]->query_status == 3) {
+        printf("\nQuery is already completed with Text:\n%s", array[id - 1]->query_text);
+    } else {
+        array[id - 1]->query_status=3;
+        printf("\nQuery is now completed with Text:\n%s", array[id - 1]->query_text);
     }
-    printf("\nInvalid QID.\n");
 }
-
-Query * deleteQuery(Query* prog) {
-    if (prog == NULL)
-        return NULL;
-    Query *temp = prog, *temp2=prog->next;
-    int curr_id = prog->query_id;
-    while(temp2) {
-        temp2->query_id = curr_id++;
-        temp2 = temp2->next;
+/*
+int deleteQuery(int i) {
+    int curr_id = array[i]->query_id;
+    for (int j = i+1; j < totalQuery; ++j) {
+        array[j]->query_id = curr_id++;
     }
     --totalQuery;
     if (prog == head) {
@@ -182,33 +150,29 @@ Query * deleteQuery(Query* prog) {
         }
     }
 }
+*/
 
 void updateElapsedTime() {
-    Query* prog = head;
-    if (prog == NULL)
+    if (!array)
         return;
     uint64_t current_time = time(NULL);
-    while (prog) {
-        if (prog->query_status == 2) {
-            prog->time_elapsed = current_time - prog->start_time;
-        }
-        prog = prog->next;
-    } 
+    for (int i = 0; i < totalQuery; ++i )
+        if (array[i]->query_status == 2)
+            array[i]->time_elapsed = current_time - array[i]->start_time;
 }
 
 void removeAllCompletedQueries() {
-    if (head == NULL) {
+    if (!array) {
         printf("\nNo Programs at the moment.\n");
         return;
     }
-    Query* temp = head;
     int isIT = 0;
-    while (temp) {
-        if (temp->query_status == 3) {
-            temp = deleteQuery(temp);
+    for (int i=0; i< totalQuery; ) {
+        if (array[i]->query_status == 3) {
+            i = deleteQuery(i);
             isIT++;
         } else {
-            temp = temp->next;
+            ++i;
         }
     }
     if (isIT) {
@@ -259,7 +223,7 @@ int main() {
             getchar();
             break;
         case '4':
-            if (head==NULL){
+            if (!array){
                 printf("\nNo Queries at the moment.\n");
             } else {
                 printf("\n***Updated Elapsed Time for running Queries***\n");
