@@ -17,7 +17,7 @@ Query* getDetails();
 void addQuery();
 void runQuery(int );
 void completeQuery(int );
-int deleteQuery(int );
+void deleteQuery(int );
 void freeList();
 void updateElapsedTime();
 void removeAllCompletedQueries();
@@ -77,7 +77,6 @@ Query* getDetails() {
 }
 
 void addQuery() {
-
     Query* newQuery = getDetails();
     array = (Query** )realloc(array ,(sizeof(Query*) * totalQuery));
     array[totalQuery - 1] = newQuery;
@@ -117,40 +116,19 @@ void completeQuery(int id) {
         printf("\nQuery is now completed with Text:\n%s", array[id - 1]->query_text);
     }
 }
-/*
-int deleteQuery(int i) {
+
+void deleteQuery(int i) {
     int curr_id = array[i]->query_id;
     for (int j = i+1; j < totalQuery; ++j) {
         array[j]->query_id = curr_id++;
     }
-    --totalQuery;
-    if (prog == head) {
-        if (head == tail) {
-            head = tail = NULL;
-            free(temp);
-            return NULL;
-        } else {
-            head = head->next;
-            head->prev = NULL;
-            free(temp);
-            return head;
-        }
-    } else {
-        if (temp == tail) {
-            tail = temp->prev;
-            tail->next = NULL;
-            free(temp);
-            return tail;
-        } else {
-            Query * temp3 = temp->next;
-            (temp->prev)->next = temp->next;
-            (temp->next)->prev = temp->prev;
-            free(temp);
-            return temp3;
-        }
+    for (int j = i; j < totalQuery-1; ++j) {
+        *array[j] = *array[j+1];
     }
+    free(array[totalQuery - 1]);
+    --totalQuery;
+    array = (Query** )realloc(array ,(sizeof(Query*) * totalQuery));
 }
-*/
 
 void updateElapsedTime() {
     if (!array)
@@ -169,7 +147,7 @@ void removeAllCompletedQueries() {
     int isIT = 0;
     for (int i=0; i< totalQuery; ) {
         if (array[i]->query_status == 3) {
-            i = deleteQuery(i);
+            deleteQuery(i);
             isIT++;
         } else {
             ++i;
@@ -194,9 +172,9 @@ int main() {
     char choice;
     int id;
     while (1) {
-        printf("\n=============================================\n");
+        printf("\n============================================\n");
         showQueries();
-        printf("\n=============================================\n");
+        printf("\n============================================\n");
         printf("\n1. Add new Query.\n");
         printf("2. Run a Query.\n");
         printf("3. Complete a Query.\n");
@@ -205,6 +183,7 @@ int main() {
         printf("0. Exit.\n");
         printf("Choice: ");
         scanf("%c", &choice);
+        fflush(stdin);
         switch(choice) {
         case '1':
             getchar();
