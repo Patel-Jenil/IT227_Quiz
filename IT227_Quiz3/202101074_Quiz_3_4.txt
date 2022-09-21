@@ -1,2 +1,27 @@
-white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz3$ make -f makefile
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz3$ make -f makefile && open ${HOME}/Proj
+mkdir -p /home/white-wolf/Proj
+mkdir -p /home/white-wolf/Proj/bin
+mkdir -p /home/white-wolf/Proj/include
+mkdir -p /home/white-wolf/Proj/lib
+mkdir -p /home/white-wolf/Proj/src; mkdir -p /home/white-wolf/Proj/src/obj; cp -f ./*.c /home/white-wolf/Proj/src;
 cp -f ./*.h /home/white-wolf/Proj/include/202101074_header.h
+gcc -c -o /home/white-wolf/Proj/src/obj/202101074_main.o /home/white-wolf/Proj/src/202101074_main.c -I/home/white-wolf/Proj/include
+gcc -c -o /home/white-wolf/Proj/src/obj/202101074_is_prime.o /home/white-wolf/Proj/src/202101074_is_prime.c -I/home/white-wolf/Proj/include
+gcc -c -o /home/white-wolf/Proj/src/obj/202101074_is_digit.o /home/white-wolf/Proj/src/202101074_is_digit.c -I/home/white-wolf/Proj/include
+ar rcs /home/white-wolf/Proj/lib/libstatic.a /home/white-wolf/Proj/src/obj/202101074_is_prime.o /home/white-wolf/Proj/src/obj/202101074_is_digit.o
+gcc -o /home/white-wolf/Proj/src/202101074_main /home/white-wolf/Proj/src/obj/202101074_main.o -I/home/white-wolf/Proj/include /home/white-wolf/Proj/lib/libstatic.a
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz3$ ~/Proj/src/*main
+
+Enter a character: 5
+Enter a Number: 2
+
+You have entered a number for character!
+You have entered a composite number!
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz3$ ~/Proj/src/*main
+
+Enter a character: a 
+Enter a Number: 41
+
+You have entered a character other than numbers!
+You have entered a prime number!
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz3$

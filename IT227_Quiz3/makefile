@@ -1,3 +1,4 @@
+# JENIL_PATEL_202101074
 SRCDIR = ${HOME}/Proj/src
 IDIR =${HOME}/Proj/include
 CC=gcc
@@ -13,7 +14,6 @@ _OBJ = 202101074_is_digit.o 202101074_is_prime.o 202101074_main.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 BUILDDIR = ${HOME}/Proj ${HOME}/Proj/bin ${HOME}/Proj/include ${HOME}/Proj/lib
-# COPY_FILES = ./*.c
 
 all: $(BUILDDIR) $(SRCDIR) copy $(ODIR)/202101074_main.o $(ODIR)/202101074_is_prime.o $(ODIR)/202101074_is_digit.o $(_LIBS) $(SRCDIR)/202101074_main
 
@@ -41,7 +41,7 @@ $(_LIBS): $(ODIR)/202101074_is_prime.o $(ODIR)/202101074_is_digit.o
 LIBS=$(patsubst %,$(LDIR)/%,$(_LIBS))
 
 $(SRCDIR)/202101074_main: $(OBJ)
-	$(CC) -o $@ $(OBJ) $(CFLAGS)
+	$(CC) -o $@ $(ODIR)/202101074_main.o $(CFLAGS) $(LIBS)
 
 .PHONY: clean
 clean:
