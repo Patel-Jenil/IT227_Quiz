@@ -1,0 +1,30 @@
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz3$ gcc -shared -o libdynamic.so *is*.o 
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz3$ gcc -o 202101074_main_dy.out *main.o libdynamic.so
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz3$ ./*dy.out
+./202101074_main_dy.out: error while loading shared libraries: libdynamic.so: cannot open shared object file: No such file or directory
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz3$ ldd *dy.out
+	linux-vdso.so.1 (0x00007ffd6cd65000)
+	libdynamic.so => not found
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f05f8ec2000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007f05f9101000)
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz3$ export LD_LIBRARY_PATH=$(pwd)
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz3$ ldd *dy.out
+	linux-vdso.so.1 (0x00007ffdf690b000)
+	libdynamic.so => /home/white-wolf/Desktop/IT227_Quiz/IT227_Quiz3/libdynamic.so (0x00007f81c1cc7000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f81c1a8f000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007f81c1cd3000)
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz3$ ./*dy.out
+
+Enter a character: 0
+Enter a Number: 9
+
+You have entered a number for character!
+You have entered a composite number!
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz3$ ./*dy.out
+
+Enter a character: c
+Enter a Number: 5
+
+You have entered a character other than numbers!
+You have entered a prime number!
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz3$

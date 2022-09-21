@@ -1,0 +1,18 @@
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz3$ gcc -c *.c
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz3$ ar rs libstatic.a  *is*.o
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz3$ gcc -o 202101074_main.out *main.o libstatic.a
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz3$ ./*.out
+
+Enter a character: 9
+Enter a Number: 9
+
+You have entered a number for character!
+You have entered a composite number!
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz3$ ./*.out
+
+Enter a character: a
+Enter a Number: 5
+
+You have entered a character other than numbers!
+You have entered a prime number!
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz3$
