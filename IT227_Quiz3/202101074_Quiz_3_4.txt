@@ -1,0 +1,2 @@
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz3$ make -f makefile
+cp -f ./*.h /home/white-wolf/Proj/include/202101074_header.h

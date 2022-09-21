@@ -3,9 +3,8 @@ IDIR =${HOME}/Proj/include
 CC=gcc
 CFLAGS=-I$(IDIR)
 ODIR=${HOME}/Proj/src/obj
-LDIR =${HOME}/lib
+LDIR =${HOME}/Proj/lib
 _LIBS=libstatic.a
-LIBS=$(patsubst %,$(LDIR)/%,$(_LIBS))
 
 _DEPS=202101074_header.h
 DEPS=$(patsubst %,$(IDIR)/%,$(_DEPS))
@@ -16,13 +15,13 @@ OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 BUILDDIR = ${HOME}/Proj ${HOME}/Proj/bin ${HOME}/Proj/include ${HOME}/Proj/lib
 # COPY_FILES = ./*.c
 
-all: $(BUILDDIR) $(SRCDIR) copy $(ODIR)/202101074_main.o $(ODIR)/202101074_is_prime.o $(ODIR)/202101074_is_digit.o $(SRCDIR)/202101074_main
+all: $(BUILDDIR) $(SRCDIR) copy $(ODIR)/202101074_main.o $(ODIR)/202101074_is_prime.o $(ODIR)/202101074_is_digit.o $(_LIBS) $(SRCDIR)/202101074_main
 
 $(BUILDDIR):
 	mkdir -p $@
 
 $(SRCDIR):
-	mkdir -p $@; mkdir -p $(ODIR); cp -fv ./*.c $@;
+	mkdir -p $@; mkdir -p $(ODIR); cp -f ./*.c $@;
 
 copy:
 	cp -f ./*.h $(DEPS)
@@ -36,11 +35,13 @@ $(ODIR)/202101074_is_prime.o: $(SRCDIR)/202101074_is_prime.c $(DEPS)
 $(ODIR)/202101074_is_digit.o: $(SRCDIR)/202101074_is_digit.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-# $(LDIR)/libstatic.a: $(ODIR)/202101074_is_prime.o $(ODIR)/202101074_is_digit.o
-# 	ar crs $@ $(ODIR)/202101074_is_prime.o $(ODIR)/202101074_is_digit.o
+$(_LIBS): $(ODIR)/202101074_is_prime.o $(ODIR)/202101074_is_digit.o
+	ar rcs $(LDIR)/$@ $(ODIR)/202101074_is_prime.o $(ODIR)/202101074_is_digit.o
+
+LIBS=$(patsubst %,$(LDIR)/%,$(_LIBS))
 
 $(SRCDIR)/202101074_main: $(OBJ)
-	$(CC) -o $@ $(OBJ) $(CFLAGS) 
+	$(CC) -o $@ $(OBJ) $(CFLAGS)
 
 .PHONY: clean
 clean:
