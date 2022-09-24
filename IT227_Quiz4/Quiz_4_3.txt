@@ -1,0 +1,15 @@
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz4$ gcc Quiz_4_3.c
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz4$ ./a.out
+*********************
+The content of the file :
+abcdefghij
+*********************
+*********************
+The content of the file :
+12345fghij
+*********************
+*********************
+The content of the file :
+12345abcde
+*********************
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz4$ 

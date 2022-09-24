@@ -1,0 +1,16 @@
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz4$ gcc Quiz_4_2.c
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz4$ ./a.out ./
+./Quiz_4_1.c
+./Quiz_4_1.txt
+./Quiz_4_2.c
+./Quiz_4_2.txt
+./Quiz_4_3.c
+./a.out
+./file1.txt
+./hard_by_code
+./hard_by_command
+./info.c
+./soft_by_code
+./soft_by_command
+./test.txt
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz4$ 

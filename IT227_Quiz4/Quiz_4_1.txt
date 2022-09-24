@@ -1,0 +1,30 @@
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz4$ gcc Quiz_4_1.c
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz4$ ./a.out test.txt
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz4$ ln test.txt hard_by_command
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz4$ ln -s test.txt soft_by_command
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz4$ gcc info.c
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz4$ ./a.out
+***************************************
+Data for "./test.txt"
+The i-node number of this file is 924165
+***************************************
+Data for "./Quiz_4_1.c"
+The i-node number of this file is 924707
+***************************************
+Data for "./hard_by_code"
+The no. of hard link associated with it is : 13
+The i-node number of this file is 924165
+***************************************
+Data for "./hard_by_command"
+The no. of hard link associated with it is : 13
+The i-node number of this file is 924165
+***************************************
+Data for "./soft_by_code"
+The no. of hsoft link associated with it is : 1
+The i-node number of this file is 924998
+***************************************
+Data for "./soft_by_command"
+The no. of soft link associated with it is : 1
+The i-node number of this file is 924999
+***************************************
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz4$ 
