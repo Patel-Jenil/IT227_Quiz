@@ -1,0 +1,22 @@
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz5$ gcc -o 202101074_Quiz5_3_parent.out 202101074_Quiz5_3_parent.c
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz5$ gcc -o 202101074_Quiz5_3_child.out 202101074_Quiz5_3_child.c
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz5$ ./202101074_Quiz5_3_parent.out test1.txt test2.txt test3.txt test4.txt test5.txt
+
+Calling child process 1
+0 0 0 test1.txt
+Child with PID=2412 finished
+Calling child process 2
+ 5 13 64 test2.txt
+Child with PID=2413 finished
+Calling child process 3
+    5    63 16920 test3.txt
+Child with PID=2414 finished
+Calling child process 4
+ 16 167 802 test4.txt
+Child with PID=2415 finished
+Calling child process 5
+ 9  9 56 test5.txt
+Child with PID=2416 finished
+
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz5$ ./202101074_Quiz5_3_parent.out test1.txt
+Enter sufficient files!!
