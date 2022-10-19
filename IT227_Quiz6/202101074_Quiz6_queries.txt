@@ -1,0 +1,10 @@
+73627 select 
+38742 update 
+93483 delete 
+73823 modify 
+93353 insert
+63836 insert
+28363 delete 
+03736 modify 
+03836 insert
+03574 insert

@@ -1,0 +1,36 @@
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz6$ gcc 202101074_Quiz6_2.c -o 202101074_Quiz6_2.out
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz6$ ./202101074_Quiz6_2.out
+Child 2358: Query received: 73627 select
+Parent: Acknowledgement: OK
+
+Child 2359: Query received: 38742 update
+Parent: Acknowledgement: OK
+
+Child 2360: Query received: 93483 delete
+Parent: Acknowledgement: OK
+
+Child 2358: Query received: 73823 modify
+Parent: Acknowledgement: OK
+
+Child 2359: Query received: 93353 insert
+Parent: Acknowledgement: OK
+
+Child 2360: Query received: 63836 insert
+Parent: Acknowledgement: OK
+
+Child 2358: Query received: 28363 delete
+Parent: Acknowledgement: OK
+
+Child 2359: Query received: 03736 modify
+Parent: Acknowledgement: OK
+
+Child 2360: Query received: 03836 insert
+Parent: Acknowledgement: OK
+
+Child 2358: Query received: 03574 insert
+Parent: Acknowledgement: OK
+
+Child 2359: Query received: 00000
+Parent: Acknowledgement: OK
+
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz6$

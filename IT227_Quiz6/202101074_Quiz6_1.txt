@@ -1,0 +1,29 @@
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz6$ ./202101074_Quiz6_1.out
+Enter 0 to Exit!!
+
+Enter query details!!
+Query ID: 2
+Query: test1
+Child: Query received: 00002 test1
+Parent: Acknowledgement: OK
+
+Enter query details!!
+Query ID: 4
+Query: test2
+Child: Query received: 00004 test2
+Parent: Acknowledgement: OK
+
+Enter query details!!
+Query ID: 32
+Query: test3
+Child: Query received: 00032 test3
+Parent: Acknowledgement: OK
+
+Enter query details!!
+Query ID: 0
+Child: Query received: 00000 EXIT!
+Parent: Acknowledgement: OK
+
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz6$
+
+
