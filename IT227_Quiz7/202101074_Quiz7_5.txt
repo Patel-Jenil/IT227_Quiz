@@ -1,0 +1,35 @@
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz7$ gcc 202101074_Quiz7_5.c -o 202101074_quiz7_5.out
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz7$ ./202101074_quiz7_5.out
+Child pid = 2806
+Child: sending parent SIGUSR1
+Data in buffer1 is
+Jenil
+Kartik
+Akshay
+
+Sending SIGUSR1 to parent process 2805
+Process 2805: received SIGUSR1
+Yes, I got data
+Jenil
+Kartik
+Akshay
+
+Now reading another file in parent process
+Data in buffer2 is
+Samual
+Rohit
+Amir
+Zoya
+Carla
+
+Sending SIGUSR2 to child process 2806
+Process 2806: received SIGUSR2
+Got data
+Samual
+Rohit
+Amir
+Zoya
+Carla
+
+Process 2806 will terminate itself using SIGINT
+Child died on signal - 2

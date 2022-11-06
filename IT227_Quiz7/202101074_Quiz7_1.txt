@@ -1,0 +1,16 @@
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz7$ gcc 202101074_Quiz7_1.c -o 202101074_Quiz7_1.out
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz7$ ./202101074_Quiz7_1.out
+Press ctrl+c!
+
+Got Ignored like a loser?
+
+Ok, Try once again!
+
+I received ctrl+c!!
+Who cares!!!
+
+;) OOPS FAILED??
+
+Come on, Don't loose the hope, Try Again
+This is the final one;)
+^C

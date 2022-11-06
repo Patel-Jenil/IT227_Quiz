@@ -1,0 +1,13 @@
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz7$ gcc 202101074_Quiz7_4.c -o 202101074_Quiz7_4.out
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz7$ ./202101074_Quiz7_4.out
+Parent pid is : 2175
+Child2 pid is : 2177
+Child1 pid is : 2176
+Suspending child2
+The pid is :2177
+Killing child1
+The pid is :2176
+Resuming child2
+The pid is :2177
+Killing....
+Parent with pid 2175 and child with pid 2177
