@@ -1,0 +1,16 @@
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz7$ gcc 202101074_Quiz7_3.c -o 202101074_Quiz7_3.out
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz7$ ./202101074_Quiz7_3.out
+^CHandler2 is exeucted by 7442
+Handler1 is exeucted by 7441
+^CHandler2 is exeucted by 7442
+Handler1 is exeucted by 7441
+^CHandler2 is exeucted by 7442
+Handler1 is exeucted by 7441
+^CHandler1 is exeucted by 7441
+Handler2 is exeucted by 7442
+^CHandler2 is exeucted by 7442
+Handler1 is exeucted by 7441
+
+
+
+(Processes keeps on runninng tiill we kill them by their PID as  there is o command in code to terminate processes)
