@@ -1,0 +1,34 @@
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz8$ gcc 202101074_Quiz8_3.c -o 3.out 
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz8$ ./3.out 
+child writes: This is child line 1
+
+parent reads: This is child line 1
+
+parent writes: This is parent line 1
+
+child reads: This is parent line 1
+
+child writes: This is child line 2
+
+parent reads: This is child line 2
+
+parent writes: This is parent line 2
+
+child reads: This is parent line 2
+
+child writes: This is child line 3
+
+parent reads: This is child line 3
+
+parent writes: This is parent line 3
+
+child reads: This is parent line 3
+
+child writes: This is child line 4
+
+parent reads: This is child line 4
+
+parent writes: This is parent line 4
+
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz8$ 
+

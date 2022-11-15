@@ -1,0 +1,17 @@
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz8$ gcc 202101074_Quiz8_4.c -o 4.out 
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz8$ ./4.out 
+139663477098048 entering in pipe 1
+139663485490752 entering in pipe 1
+received 1: communicate to thread 8
+139663451919936 entering in pipe 2
+139663443527232 entering in pipe 2
+received 2: communicate to thread 6
+139663460312640 entering in pipe 2
+139663468705344 entering in pipe 1
+received 2: communicate to thread 2
+received 1: communicate to thread 2
+received 1: communicate to thread 4
+received 2: communicate to thread 0
+
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz8$ 
+

@@ -1,0 +1,14 @@
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz8$ gcc 202101074_Quiz8_1.c -o 1.out 
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz8$ ./1.out 1 2 3 4 5 6
+the main thread 140467275482944 has started
+Thread with threadID 140467275478592 is created
+Thread with threadID 140467267085888 is created
+Thread with threadID 140467258693184 is created
+sum of numbers: 3 + 4
+sum of numbers: 5 + 6
+sum of numbers: 1 + 2
+The answer of threadID 140467275478592 is: 3
+The answer of threadID 140467267085888 is: 7
+The answer of threadID 140467258693184 is: 11
+the main thread 140467275482944 has terminated
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz8$ 
