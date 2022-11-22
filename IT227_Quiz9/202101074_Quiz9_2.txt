@@ -1,0 +1,154 @@
+[[ Terminal 1 ]]			
+			
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz9$ gcc 202101074_Quiz9_2_server.c -o 202101074_Quiz9_2_server.out
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz9$ ./202101074_Quiz9_2_server.out 5000
+host:0.0.0.0, service:5000
+Waiting for a new Client to connect
+Waiting for a new Client to connect
+Connected to (localhost, 55872)
+Start Communication with Client
+server received 31 bytes
+Question: You study in which university?
+Answer: DAIICT
+server received 32 bytes
+Question: what is your area of interest? 
+Answer: Embedded Systems
+Client disconnected
+Waiting for a new Client to connect
+Connected to (localhost, 55874)
+Start Communication with Client
+server received 31 bytes
+Question: which course are you studying?
+Answer: Systems Programming
+server received 41 bytes
+Question:  Which degree have you registered for ? 
+Answer: MSc IT
+Client disconnected
+Waiting for a new Client to connect
+Connected to (localhost, 55876)
+Start Communication with Client
+server received 31 bytes
+Question: You study in which university?
+Answer: DAIICT
+server received 31 bytes
+Question: which course are you studying?
+Answer: Systems Programming
+server received 32 bytes
+Question: what is your area of interest? 
+Answer: Embedded Systems
+server received 41 bytes
+Question:  Which degree have you registered for ? 
+Answer: MSc IT
+server received 31 bytes
+Question: You study in which university?
+Answer: DAIICT
+Client disconnected
+
+
+[[ Terminal 2 ]]
+
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz9$ gcc 202101074_Quiz9_1_client.c -o 202101074_Quiz9_1_client.out
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz9$ ./202101074_Quiz9_1_client.out 5000
+host:0.0.0.0, service:5000
+Connected to server 0.0.0.0 at port 5000
+Choose question number (1-4) or 0 to exit: 
+Question 1: You study in which university?
+Question 2: which course are you studying?
+Question 3: what is your area of interest? 
+Question 4:  Which degree have you registered for ? 
+1
+Answer: DAIICT
+Choose question number (1-4) or 0 to exit: 
+Question 1: You study in which university?
+Question 2: which course are you studying?
+Question 3: what is your area of interest? 
+Question 4:  Which degree have you registered for ? 
+3
+Answer: Embedded Systems
+Choose question number (1-4) or 0 to exit: 
+Question 1: You study in which university?
+Question 2: which course are you studying?
+Question 3: what is your area of interest? 
+Question 4:  Which degree have you registered for ? 
+0
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz9$ 
+
+
+[[ Terminal 3 ]]			
+			
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz9$ gcc 202101074_Quiz9_1_client.c -o 202101074_Quiz9_1_client.out
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz9$ ./202101074_Quiz9_1_client.out localhost 5000
+host:0.0.0.0, service:5000
+Connected to server 0.0.0.0 at port 5000
+Choose question number (1-4) or 0 to exit: 
+Question 1: You study in which university?
+Question 2: which course are you studying?
+Question 3: what is your area of interest? 
+Question 4:  Which degree have you registered for ? 
+2
+Answer: Systems Programming
+Choose question number (1-4) or 0 to exit: 
+Question 1: You study in which university?
+Question 2: which course are you studying?
+Question 3: what is your area of interest? 
+Question 4:  Which degree have you registered for ? 
+4
+Answer: MSc IT
+Choose question number (1-4) or 0 to exit: 
+Question 1: You study in which university?
+Question 2: which course are you studying?
+Question 3: what is your area of interest? 
+Question 4:  Which degree have you registered for ? 
+0
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz9$ 
+
+
+[[ Terminal 4 ]]
+		
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz9$ gcc 202101074_Quiz9_1_client.c -o 202101074_Quiz9_1_client.out
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz9$ ./202101074_Quiz9_1_client.out localhost 5000
+host:0.0.0.0, service:5000
+Connected to server 0.0.0.0 at port 5000
+Choose question number (1-4) or 0 to exit: 
+Question 1: You study in which university?
+Question 2: which course are you studying?
+Question 3: what is your area of interest? 
+Question 4:  Which degree have you registered for ? 
+1
+Answer: DAIICT
+Choose question number (1-4) or 0 to exit: 
+Question 1: You study in which university?
+Question 2: which course are you studying?
+Question 3: what is your area of interest? 
+Question 4:  Which degree have you registered for ? 
+2
+Answer: Systems Programming
+Choose question number (1-4) or 0 to exit: 
+Question 1: You study in which university?
+Question 2: which course are you studying?
+Question 3: what is your area of interest? 
+Question 4:  Which degree have you registered for ? 
+3
+Answer: Embedded Systems
+Choose question number (1-4) or 0 to exit: 
+Question 1: You study in which university?
+Question 2: which course are you studying?
+Question 3: what is your area of interest? 
+Question 4:  Which degree have you registered for ? 
+4
+Answer: MSc IT
+Choose question number (1-4) or 0 to exit: 
+Question 1: You study in which university?
+Question 2: which course are you studying?
+Question 3: what is your area of interest? 
+Question 4:  Which degree have you registered for ? 
+1
+Answer: DAIICT
+Choose question number (1-4) or 0 to exit: 
+Question 1: You study in which university?
+Question 2: which course are you studying?
+Question 3: what is your area of interest? 
+Question 4:  Which degree have you registered for ? 
+0
+white-wolf@whitewolf-Ubuntu-VB:~/Desktop/IT227_Quiz/IT227_Quiz9$ 
+
